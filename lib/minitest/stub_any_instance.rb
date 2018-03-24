@@ -8,7 +8,7 @@ class BasicObject
 
       define_method(name) do |*args|
         if val_or_callable.respond_to? :call then
-          instance_exec(*args, &val_or_callable)
+          val_or_callable.call(*args)
         else
           val_or_callable
         end
